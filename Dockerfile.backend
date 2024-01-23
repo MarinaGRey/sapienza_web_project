@@ -1,0 +1,26 @@
+# Stage 1: Build the Go executable
+FROM golang:1.19 AS back_compiler
+
+# Set the working directory in the container
+WORKDIR /GoFiles/
+
+# Copy the code into the container
+COPY ./ .
+
+# Build the Go executable
+RUN go build -o /executable/webapi ./cmd/webapi
+
+# Stage 2: Create the final container image
+FROM debian:bullseye
+
+# Set the working directory in the container
+WORKDIR /executable/
+
+# Copy the Go executable from the builder stage
+COPY --from=back_compiler /executable/webapi ./
+
+# Expose the necessary ports
+EXPOSE 3000 4000
+
+# Specify the command to run the executable
+CMD ["/executable/webapi"]

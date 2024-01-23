@@ -1,0 +1,19 @@
+FROM node:lts as front_compiler
+
+# working directory
+WORKDIR /src/webui
+
+# copy the code in the container
+COPY webui .
+
+# build the application
+RUN npm install && npm run build-prod
+
+# final container image
+FROM nginx:latest
+
+# copy built files to the NGINX server
+COPY --from=front_compiler /src/webui/dist /usr/share/nginx/html
+
+# port 
+EXPOSE 80
