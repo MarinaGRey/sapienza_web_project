@@ -1,3 +1,49 @@
+# WASAPhoto
+
+WASAPhoto is an application that allows users to share photos and keep in touch with their friends by uploading and viewing images in a social network-like environment. This project was developed for the Web and Software Architecture course in the Sapienza University, with both backend and frontend implementations.
+
+## Introduction
+
+WASAPhoto offers users the ability to:
+- Upload and share photos
+- View a stream of photos in reverse chronological order from users they follow
+- Like and comment on photos
+- Manage their profile, including editing their username, uploading, and deleting photos
+- Follow and unfollow other users
+- Ban or unban users from viewing their profile
+
+The application also includes a simplified login system where users can log in by simply providing a username, with no password required.
+
+## Key Features
+
+- **Simplified Login**: Users can log in by providing a username, and the system will automatically register them if the username doesn't exist. This uses a Bearer Authentication mechanism.
+- **Photo Stream**: Users view a stream of photos from people they follow. The stream includes the date and time of upload, along with like and comment counts.
+- **Profile Management**: Users can view their profile, showing their photos, followers, and those they are following.
+- **Social Features**: Users can follow and unfollow others, like and comment on photos, and ban users.
+- **API Design**: APIs are defined using the OpenAPI standard.
+
+## Technologies Used
+
+- **Backend**: Go
+- **Frontend**: JavaScript
+- **Containerization**: Docker
+- **API Definition**: OpenAPI
+- **Authentication**: Bearer Authentication
+
+## API Endpoints
+
+Here are some of the key API operations:
+- `doLogin`: Handles user login and registration.
+- `setMyUserName`: Allows users to set their username.
+- `uploadPhoto`: Allows users to upload photos.
+- `followUser` and `unfollowUser`: Follow or unfollow other users.
+- `banUser` and `unbanUser`: Ban or unban users.
+- `getUserProfile`: Retrieve a user's profile information.
+- `getMyStream`: Fetch the photo stream.
+- `likePhoto` and `unlikePhoto`: Like or unlike photos.
+- `commentPhoto` and `uncommentPhoto`: Comment or remove comments from photos.
+
+---------------------------------------------------------------------------------------------------------------------------------------
 # Fantastic coffee (decaffeinated)
 
 This repository contains the basic structure for [Web and Software Architecture](http://gamificationlab.uniroma1.it/en/wasa/) homework project.
